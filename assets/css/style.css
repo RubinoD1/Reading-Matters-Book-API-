@@ -1,0 +1,123 @@
+html { 
+    /* bg image properties */
+    background: url("../images/background/Books on Wooden Shelves Inside Library.jpg") no-repeat center center fixed; 
+    /* Apple extension property specifies the size of the background images. 
+    It is only supported in Safari 3.0 or lower. New versions of Safari should support the background-size property.  */
+    -webkit-background-size: cover;
+    /* Mozilla extension property specifies the size of the background images. 
+    It is only supported in Gecko 1.9.2 (Firefox 3.6) or lower. New versions of Gecko support the background-size property.  */
+    -moz-background-size: cover;
+    /*  Opera extension property specifies the size of the background images. 
+    It is only supported in Opera 9.5 or lower. New versions of Opera should support the background-size property.  */
+    -o-background-size: cover;
+    
+    background-size: cover;
+
+  }
+
+
+body{
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    
+}
+
+/* form parent */
+.bookSearch {
+
+    background-color: #1e1e13;
+
+    padding: 10px;
+
+    border-radius: 6px 6px 0 0;
+
+    margin: 20px;
+
+}
+
+/* search input */
+.searchInput {
+
+    padding: 10px;
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    margin: 10px;
+
+    width: 300px;
+
+    text-align: center;
+
+}
+
+
+/* search button */
+button[type="submit"] {
+
+    padding: 10px 20px;
+
+    font-weight: bold;
+
+    font-size: 2rem;
+
+    background-color: #4e4eb1;
+
+    color: #ffffff;
+    
+    cursor: pointer;
+
+}
+
+.searchInput, button[type="submit"] {
+    
+    border: 5px solid #000000;
+    
+    border-radius: 10px;
+}
+
+button[type="submit"]:hover{
+
+    background-color: hsl(122, 39%, 40%);
+
+}
+
+/* Book info parent */
+.card {
+   
+    display: flex;
+   
+    flex-direction: column;
+   
+    align-items: center;
+
+    background: linear-gradient(90deg, #4b6cb7 0%, #8ba5d7a3 100%);
+   
+    padding: 20px;
+   
+    border-radius: 10px;
+   
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.5);
+
+    min-width: 300px;
+
+    font-family: Arial, sans-serif;
+   
+    font-weight: bold;
+
+}
+
+/* book image */
+.bookCover {
+    
+    width: 15%; 
+    
+    height: auto;
+    
+}
+
