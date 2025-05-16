@@ -17,16 +17,6 @@ Netlify deployment status: &nbsp;&nbsp;
 
 "Books on Wooden Shelves Inside Library" by: [ Stanislav Kondratiev](https://www.pexels.com/@technobulka/)
 
-
-
-
-
-
-
-
-
-
-
 ## Potential Backgrounds
 
 "Books on Wooden Shelves Inside Library" by: [ Stanislav Kondratiev](https://www.pexels.com/@technobulka/)
@@ -41,3 +31,42 @@ Netlify deployment status: &nbsp;&nbsp;
 ![Books on Wooden Shelves Inside Library](./assets/images/background/Books%20on%20Wooden%20Shelves%20Inside%20Library.jpg) -->
 <!-- &nbsp; adds space between images -->
 &nbsp;
+
+
+
+## API Notes 
+
+Performing a search
+
+You can perform a volumes search by sending an HTTP GET request to the following URI:
+
+https://www.googleapis.com/books/v1/volumes?q=search+terms
+
+This request has a single required parameter:
+
+    q - Search for volumes that contain this text string. There are special keywords you can specify in the search terms to search in particular fields, such as:
+        
+        intitle: Returns results where the text following this keyword is found in the title.
+        
+        inauthor: Returns results where the text following this keyword is found in the author.
+        
+        inpublisher: Returns results where the text following this keyword is found in the publisher.
+        
+        subject: Returns results where the text following this keyword is listed in the category list of the volume.
+        
+        isbn: Returns results where the text following this keyword is the ISBN number.
+        
+        lccn: Returns results where the text following this keyword is the Library of Congress Control Number.
+        
+        oclc: Returns results where the text following this keyword is the Online Computer Library Center number.
+
+Request
+
+Here is an example of searching for Daniel Keyes' "Flowers for Algernon":
+
+GET https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey
+
+**Note: Performing a search does not require authentication, so you do not have to provide the Authorization HTTP header with the GET request. However, if the call is made with authentication, each Volume will include user-specific information, such as purchased status.**
+
+
+inauthor search sample: https://www.googleapis.com/books/v1/volumes?q=inauthor:"Richard+Moreno"&key=my_key

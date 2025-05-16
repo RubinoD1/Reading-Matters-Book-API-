@@ -28,14 +28,18 @@ body{
 
 /* form parent */
 .bookSearch {
-
-    background-color: #1e1e13;
+    /* re-add once done editing search form */
+    /* background-color: #1e1e13; */
+    /* temp for editing */
+    background-color: #a9a9a9;
 
     padding: 10px;
 
-    border-radius: 6px 6px 0 0;
+    border-radius: 6px;
 
     margin: 20px;
+
+    text-align: center;
 
 }
 
@@ -85,6 +89,13 @@ button[type="submit"]:hover{
 
     background-color: hsl(122, 39%, 40%);
 
+}
+
+/* radio menu */
+.radioMenu {
+    font-size: 1.5rem;
+    /* background-color: #a9a9a9; */
+    font-weight: bold;
 }
 
 /* Book info parent */
