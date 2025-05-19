@@ -17,44 +17,46 @@
     </header>
 
 
-    <!-- Search form  -->
-    <!-- <form class="bookSearch">
-
-          <input type="text" class="searchInput" placeholder="Enter search here...">
-
-          <button type="submit">Search</button>
-
-     </form> -->
-
-     <div class="bookSearch">
-          <form >
+    <!-- search form  -->
+     <form class="bookSearch">
+          <fieldset >
 
                <input type="text" class="searchInput" placeholder="Enter search here...">
 
                <button type="submit">Search</button>
 
-               <!-- Advanced settings (search filter) -->
-          </form>
-          <form class="radioMenu">
-                 <input type="radio" checked="checked" >
-                 <label>Title</label>
-        
-                 <input type="radio">
-                 <label >Author</label>
+          </fieldset>
+          
+          <fieldset class="radioMenu">
+               
+                    <input type="radio" id="title" value="title" name="search-radio" checked />
+                    <label for="title">Title</label>
+               
 
-                 <input type="radio">
-                 <label >Publisher</label>
-        
-                 <input type="radio">
-                 <label >Subject</label>
-        
-                 <input type="radio">
-                 <label >ISBN</label>
-          </form>
-     </div>
+               
+                    <input type="radio" id="author" value="author" name="search-radio"/>
+                    <label for="author">Author</label>
+               
+
+             
+                    <input type="radio" id="publisher" value="publisher" name="search-radio"/>
+                    <label for="publisher">Publisher</label>
+               
+
+                
+                    <input type="radio" id="subject" value="subject" name="search-radio"/>
+                    <label for="subject">Subject</label>
+               
+
+               
+                    <input type="radio" id="ISBN" value="ISBN" name="search-radio"/>
+                    <label for="ISBN">ISBN</label>
+               
+          </fieldset>
+     </form>
 
     <!-- Search result detailed -->
-     <div class="card">
+     <!-- <div class="card">
           <h1 class="bookTitle">Book Title: Lord of the rings</h1>
           
           <h2 class="author">Author: Jane Doe</h2>
@@ -79,7 +81,7 @@
 
           <p class="publisher">Publisher: Penguin Books</p>
 
-     </div>
+     </div> -->
 
 
      <!-- JS  -->
