@@ -1,6 +1,6 @@
 html { 
     /* bg image properties */
-    background: url("../images/background/Books on Wooden Shelves Inside Library.jpg") no-repeat center center fixed; 
+    background: url("./assets/images/background/Books on Wooden Shelves Inside Library.jpg") no-repeat center center fixed; 
     /* Apple extension property specifies the size of the background images. 
     It is only supported in Safari 3.0 or lower. New versions of Safari should support the background-size property.  */
     -webkit-background-size: cover;
