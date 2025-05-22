@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
   // const API_SECRET = process.env.API_SECRET;
   
   //url 
-  const url = `https://www.googleapis.com/books/v1/volumes?q=${search}`;
+  const url = `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`;
   
   //make weather request to api 
   try {
