@@ -175,18 +175,22 @@ label:hover {
 
 li {
     /* transparent black */
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* background-color: #000000; */
     /* limit flex-items per row */
-    /* flex-basis: 18% */
+    flex-basis: 18%
 }
 
 .smallThumbnail {
-  border: 1px solid #ddd; 
-  border-radius: 4px;  /* Rounded border */
-  padding: 5px; 
-  width: 250px; /* Set a small width */
-  margin: 5px;
+    /* border: 1px solid #ddd;  */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; 
+    width: 250px; /* Set a small width */
+    /* margin: 5px; */
+
+    /* center image */
+    display: block;
+    margin: auto;
 }
 
 .thumbnailContent {
@@ -195,3 +199,51 @@ li {
     text-align: center;
     border: 4px solid white;
 }
+
+/* details element */
+details {
+  padding: 10px;
+  background-color: #e4eaef;
+  border-radius: 5px;
+}
+
+
+/* summary marker */
+summary::marker {
+  color: #1e1e13;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+summary {
+  /* move icon to left */
+  /* list-style-position: outside;
+  margin-left: 30px;
+  border-radius: 5px; */
+
+
+  
+  /* change icon */
+  list-style-type: '⬇ ';
+}
+
+summary:hover, details[open] > summary:hover {
+  background: #dad3b1;
+}
+
+summary::after {
+  content: " Details";
+}
+
+details[open] summary::after {
+  content: " Hide";
+}
+
+/* when details open */
+details[open] > summary {
+  list-style-type: '⬆ ';
+  /* color: #d9103e; */
+  font-size: 1.2em;
+  background-color: #e9ac16;
+}
+
