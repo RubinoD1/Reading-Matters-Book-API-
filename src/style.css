@@ -211,20 +211,13 @@ details {
 /* summary marker */
 summary::marker {
   color: #1e1e13;
-  font-size: 1.2em;
-  font-weight: bold;
+  /* font-size: 1.2em;
+  font-weight: bold; */
 }
 
 summary {
-  /* move icon to left */
-  /* list-style-position: outside;
-  margin-left: 30px;
-  border-radius: 5px; */
-
-
-  
-  /* change icon */
-  list-style-type: '⬇ ';
+  /* list-style-type: '⬇ '; */
+  list-style-type: "\1F7A7";
 }
 
 summary:hover, details[open] > summary:hover {
@@ -232,7 +225,7 @@ summary:hover, details[open] > summary:hover {
 }
 
 summary::after {
-  content: " Details";
+  content: " More Info";
 }
 
 details[open] summary::after {
@@ -241,9 +234,18 @@ details[open] summary::after {
 
 /* when details open */
 details[open] > summary {
-  list-style-type: '⬆ ';
+  /* list-style-type: '⬆ '; */
+   list-style-type: "\25B2";
   /* color: #d9103e; */
-  font-size: 1.2em;
-  background-color: #e9ac16;
+  font-size: 1.1em;
+  background-color: #e9ac1670;
+  padding: 10px;
+}
+
+
+/* details book description */
+.detailsDescription, .detailsCatergories {
+    border-bottom: 2px solid;
+    padding-bottom: 10px;
 }
 
