@@ -2,6 +2,8 @@
 const bookSearch = document.querySelector(".bookSearch");
 // searchInput is text box 
 const searchInput = document.querySelector(".searchInput");
+// parent element for search results
+const results = document.querySelector(".searchResults");
 
 bookSearch.addEventListener("submit", async event => {
     //prevents page refresh
@@ -59,8 +61,8 @@ async function testCall(searchValue) {
       
               //covert our response to JSON -- Also returns a promise that is why we are using await
               const data = await response.json();
-              console.log(data);
-              
+              //console.log(data);
+              searchResults(data);
               
               //****pass response data to function****
              
@@ -71,5 +73,135 @@ async function testCall(searchValue) {
               console.error(error);
               //errorMessage(error);
           }
-     
+}
+
+
+
+// create search elements 
+function searchResults(data) {
+   console.log(data, " data");
+    // console.log(data.items[0].volumeInfo, " data single property test");
+    // console.log(data.items[0].volumeInfo.imageLinks.smallThumbnail);
+   // console.log(typeof data);
+  console.log(data.items[0].volumeInfo.categories);
+  
+
+   
+    
+
+    // ***NEED DATA LENGTH FOR ITERATION***
+    // console.log(data.items.length, " is length");
+    
+
+    // if search results already exist the empty string will reset it 
+   // ul.textContent = "";
+    // make search ul visible by removing display: none property 
+  //  results.style.display = "flex";
+
+
+
+    // create elements 
+    const parent = document.createElement("li");//parent that holds all book search results for a volume 
+    const thumbnail = document.createElement("img"); // book thumbnail image
+
+    const div = document.createElement("div");//holds all book details (parent)
+    const title = document.createElement("h3");//title
+    const author =  document.createElement("p");//author
+
+    const details = document.createElement("details"); //details element (parent within div)
+    const summary = document.createElement("summary"); // summary element
+    const description = document.createElement("p"); //book description
+    const categories = document.createElement("p"); //book categories
+
+    const ratingParent = document.createElement("p"); //book rating info parent
+    const ratingIcon = document.createElement("img"); //book rating icon
+    const ratingInfo = document.createElement("p"); //book rating info 
+
+    const publisherParent = document.createElement("p"); //book publisher info parent
+    const publisherIcon = document.createElement("img"); //book publisher icon
+    const publisherInfo = document.createElement("p"); //book publisher info 
+
+    const publicationParent = document.createElement("p"); //book publication info parent
+    const publicationIcon = document.createElement("img"); //book publication icon
+    const publicationInfo = document.createElement("p"); //book publication info     
+
+    const pagesParent = document.createElement("p"); //book page count info parent
+    const pagesIcon = document.createElement("img"); //book pages icon
+    const pagesInfo = document.createElement("p"); //book pages info        
+
+
+
+    // set created elements content
+    thumbnail.src = `${data.items[0].volumeInfo.imageLinks.thumbnail}`;
+    thumbnail.alt = `Book cover thumbnail`; 
+    title.textContent = `${data.items[0].volumeInfo.title}`; 
+    author.textContent = `${data.items[0].volumeInfo.authors}`; 
+    description.textContent = `${data.items[0].volumeInfo.description}`;
+    categories.textContent = `${data.items[0].volumeInfo.categories}`;
+
+    ratingIcon.src = `./assets/images/icons/rating.svg`;
+    ratingIcon.alt = `rating icon`;
+    ratingInfo.innerHTML = "<b>Rating: </b>" + `${data.items[0].volumeInfo.averageRating}`;
+
+    publisherIcon.src = `./assets/images/icons/publisher.svg`;
+    publisherIcon.alt = `publisher icon`;
+    publisherInfo.innerHTML = "<b>Publisher: </b>" + `${data.items[0].volumeInfo.publisher}`;
+
+    publicationIcon.src = `./assets/images/icons/publication.svg`;
+    publicationIcon.alt = `publication date icon`;
+    publicationInfo.innerHTML = "<b>Published: </b>" + `${data.items[0].volumeInfo.publishedDate}`;
+
+    pagesIcon.src = `./assets/images/icons/pages.svg`;
+    pagesIcon.alt = `page count icon`;
+    pagesInfo.innerHTML = "<b>Pages: </b>" + `${data.items[0].volumeInfo.pageCount}`;
+
+    // add CSS classes to elements 
+    thumbnail.classList.add("smallThumbnail"); 
+    div.classList.add("thumbnailContent");
+    description.classList.add("detailsDescription");
+    categories.classList.add("detailsCatergories");
+    
+    ratingIcon.classList.add("detailsIcon");
+    publisherIcon.classList.add("detailsIcon");
+    publicationIcon.classList.add("detailsIcon");
+    pagesIcon.classList.add("detailsIcon");
+
+    // add unique id's to parents for identification -- **MAY BE UNNEEDED**
+    parent.setAttribute("id", `parent0`);
+    
+
+
+    // append child elements to parent 
+    parent.appendChild(thumbnail);//thumbnail
+    parent.appendChild(div);//div parent of book details
+    div.appendChild(title);//title
+    div.appendChild(author);//author
+    div.appendChild(details); // parent of more info details
+    
+    //append to details element
+    details.appendChild(summary);
+    details.appendChild(description);
+    details.appendChild(categories);
+
+    //rating 
+    details.appendChild(ratingParent);
+    ratingParent.appendChild(ratingIcon);
+    ratingParent.appendChild(ratingInfo);
+    //publisher
+    details.appendChild(publisherParent);
+    publisherParent.appendChild(publisherIcon);
+    publisherParent.appendChild(publisherInfo);
+    //publication date
+    details.appendChild(publicationParent);
+    publicationParent.appendChild(publicationIcon);
+    publicationParent.appendChild(publicationInfo);
+    //page count
+    details.appendChild(pagesParent);
+    pagesParent.appendChild(pagesIcon);
+    pagesParent.appendChild(pagesInfo);
+
+    results.appendChild(parent); //append to ul parent element
+
+
+
 }
