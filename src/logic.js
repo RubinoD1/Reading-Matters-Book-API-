@@ -79,13 +79,20 @@ async function testCall(searchValue) {
 
 // create search elements 
 function searchResults(data) {
-   console.log(data, " data");
+
+
+
+
+   //console.log(data, " data");
     // console.log(data.items[0].volumeInfo, " data single property test");
     // console.log(data.items[0].volumeInfo.imageLinks.smallThumbnail);
    // console.log(typeof data);
-  console.log(data.items[0].volumeInfo.categories);
+  //console.log(data.items[0].volumeInfo.categories);
   
-
+    // will only return true for direct properties and not inherited properties from the prototype chain.    
+    //console.log(data.items[0].volumeInfo.hasOwnProperty("averageRating"), " property test");
+    //  will return true for both direct and inherited properties that exist in the object or its prototype chain.  
+    //console.log("averageRating" in data.items[0].volumeInfo, " in property check ");
    
     
 
@@ -94,9 +101,13 @@ function searchResults(data) {
     
 
     // if search results already exist the empty string will reset it 
-   // ul.textContent = "";
+    results.textContent = "";
     // make search ul visible by removing display: none property 
-  //  results.style.display = "flex";
+    results.style.display = "flex";
+
+
+    //iterate through array.length 
+    
 
 
 
@@ -132,28 +143,117 @@ function searchResults(data) {
 
 
     // set created elements content
-    thumbnail.src = `${data.items[0].volumeInfo.imageLinks.thumbnail}`;
-    thumbnail.alt = `Book cover thumbnail`; 
-    title.textContent = `${data.items[0].volumeInfo.title}`; 
-    author.textContent = `${data.items[0].volumeInfo.authors}`; 
-    description.textContent = `${data.items[0].volumeInfo.description}`;
-    categories.textContent = `${data.items[0].volumeInfo.categories}`;
+    // thumbnail.src = `${data.items[0].volumeInfo.imageLinks.thumbnail}`;
+    // thumbnail.alt = `Book cover thumbnail`; 
+    // title.textContent = `${data.items[0].volumeInfo.title}`; 
+    // author.textContent  = addSpaceAfterComma(`${data.items[0].volumeInfo.authors}`);
+    // description.textContent = `${data.items[0].volumeInfo.description}`;
+    // categories.textContent = `${data.items[0].volumeInfo.categories}`;
+
+    // ratingIcon.src = `./assets/images/icons/rating.svg`;
+    // ratingIcon.alt = `rating icon`;
+    // ratingInfo.innerHTML = "<b>Rating: </b>" + `${data.items[0].volumeInfo.averageRating}`;
+
+    // publisherIcon.src = `./assets/images/icons/publisher.svg`;
+    // publisherIcon.alt = `publisher icon`;
+    // publisherInfo.innerHTML = "<b>Publisher: </b>" + `${data.items[0].volumeInfo.publisher}`;
+
+    // publicationIcon.src = `./assets/images/icons/publication.svg`;
+    // publicationIcon.alt = `publication date icon`;
+    // publicationInfo.innerHTML = "<b>Published: </b>" + `${data.items[0].volumeInfo.publishedDate}`;
+
+    // pagesIcon.src = `./assets/images/icons/pages.svg`;
+    // pagesIcon.alt = `page count icon`;
+    // pagesInfo.innerHTML = "<b>Pages: </b>" + `${data.items[0].volumeInfo.pageCount}`;
+
+
+    // set created elements content
+    //thumbnail 
+    if ("thumbnail" in data.items[0].volumeInfo.imageLinks === true){
+        thumbnail.src = `${data.items[0].volumeInfo.imageLinks.thumbnail}`;
+        thumbnail.alt = `Book cover thumbnail`; 
+    } else {
+        // **ADD NO BOOK COVER TUMBNAIL ASSET
+        thumbnail.src = ``;
+        //thumbnail.alt = `Book cover not avaliable thumbnail`;
+    }
+
+    //title 
+    if ("title" in data.items[0].volumeInfo === true) {
+        title.textContent = `${data.items[0].volumeInfo.title}`; 
+    } else {
+        title.textContent = "Title: N/A"; 
+    }
+
+    //author 
+    if ("authors" in data.items[0].volumeInfo === true) {
+        //add space after comma     
+        function addSpaceAfterComma(str) {
+            return str.replace(/,/g, ', ');
+        }
+
+        author.textContent  = addSpaceAfterComma(`${data.items[0].volumeInfo.authors}`);
+    } else {
+        author.textContent = "Author: N/A"; 
+    }    
+
+    //description
+    if ("description" in data.items[0].volumeInfo === true) {
+        description.textContent = `${data.items[0].volumeInfo.description}`;
+    } else {
+        description.textContent = "Description: N/A"; 
+    } 
+    
+    //categories 
+    if ("categories" in data.items[0].volumeInfo === true) {
+        categories.textContent = `${data.items[0].volumeInfo.categories}`;
+    } else {
+        categories.textContent = "Categories: N/A"; 
+    }     
+
+    //rating
+    if ("averageRating" in data.items[0].volumeInfo === true) {
+        ratingInfo.innerHTML = "<b>Rating: </b>" + `${data.items[0].volumeInfo.averageRating}`;
+    } else {
+        ratingInfo.innerHTML = "<b>Rating: </b> N/A";
+    }      
 
     ratingIcon.src = `./assets/images/icons/rating.svg`;
     ratingIcon.alt = `rating icon`;
-    ratingInfo.innerHTML = "<b>Rating: </b>" + `${data.items[0].volumeInfo.averageRating}`;
+
+    //publisher
+    if ("publisher" in data.items[0].volumeInfo === true) {
+        publisherInfo.innerHTML = "<b>Publisher: </b>" + `${data.items[0].volumeInfo.publisher}`;
+    } else {
+        publisherInfo.innerHTML = "<b>Publisher: </b> N/A";
+    }     
 
     publisherIcon.src = `./assets/images/icons/publisher.svg`;
     publisherIcon.alt = `publisher icon`;
-    publisherInfo.innerHTML = "<b>Publisher: </b>" + `${data.items[0].volumeInfo.publisher}`;
+
+    //publication
+    if ("publishedDate" in data.items[0].volumeInfo === true) {
+        publicationInfo.innerHTML = "<b>Published: </b>" + `${data.items[0].volumeInfo.publishedDate}`;
+    } else {
+        publicationInfo.textContent = "<b>Published: </b> N/A"; 
+    }        
 
     publicationIcon.src = `./assets/images/icons/publication.svg`;
     publicationIcon.alt = `publication date icon`;
-    publicationInfo.innerHTML = "<b>Published: </b>" + `${data.items[0].volumeInfo.publishedDate}`;
 
+    //page count 
+    if ("pageCount" in data.items[0].volumeInfo === true) {
+        pagesInfo.innerHTML = "<b>Pages: </b>" + `${data.items[0].volumeInfo.pageCount}`;
+    } else {
+        pagesInfo.innerHTML = "<b>Rating: </b> N/A";
+    }       
+    
     pagesIcon.src = `./assets/images/icons/pages.svg`;
     pagesIcon.alt = `page count icon`;
-    pagesInfo.innerHTML = "<b>Pages: </b>" + `${data.items[0].volumeInfo.pageCount}`;
+   
+   
+
+
 
     // add CSS classes to elements 
     thumbnail.classList.add("smallThumbnail"); 
