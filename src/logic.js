@@ -31,22 +31,25 @@ bookSearch.addEventListener("submit", async event => {
         console.log(radioSelection, " is radio selection");
     
         //switch statement to select api call -- pass search value and radio value in function call 
-        testCall(search);
+        testCall(search, radioSelection);
 
     } else { //If no value is entered in search 
         
-        console.log("Please enter a search parameter");
+        //console.log("Please enter a search parameter");
+        displayError("Please enter a search parameter");
     
     }
     
 
 }); 
 
-async function testCall(searchValue) {
-        
-        let search = searchValue;
-    
+async function testCall(searchValue, radioSelection) {
 
+    let search = searchValue;
+
+    switch (radioSelection){
+        // search by title 
+        case "title":
           try{
               //await response (retrieving data)
               const response = await fetch(`/.netlify/functions/fetch-title?search=${search}`);
@@ -65,14 +68,57 @@ async function testCall(searchValue) {
               searchResults(data);
               
               //****pass response data to function****
+              
+      
+          }
+          //error response if api call fails
+          catch(error){
+              console.error(error);
+              //displayError(error);
+          }    
+          break;
+        
+        // search by author 
+        case "author":
+        try{
+              //await response (retrieving data)
+              const response = await fetch(`/.netlify/functions/fetch-author?search=${search}`);
+      
+              //once the response has been resolved we check its status 
+              if(!response.ok){ //if response is NOT okay throw an error message 
+      
+                  throw new Error("Could not fetch resource");
+      
+              }
+              //if response IS okay 
+      
+              //covert our response to JSON -- Also returns a promise that is why we are using await
+              const data = await response.json();
+              console.log(data);
+              searchResults(data);
+              
+              //****pass response data to function****
              
       
           }
           //error response if api call fails
           catch(error){
               console.error(error);
-              //errorMessage(error);
-          }
+              //displayError(error);
+          }    
+          break;
+
+
+        
+        // default response   
+        default: 
+        console.log("Error in switch statement");
+        
+    }
+        
+
+
+
 }
 
 
@@ -241,5 +287,23 @@ function searchResults(data) {
 
         results.appendChild(parent); //append to ul parent element
     }    
+
+}
+
+
+// display error message
+function displayError(message){
+
+    const errorDisplay = document.createElement("p");
+    errorDisplay.textContent = message;
+    errorDisplay.classList.add("errorMessage");
+
+    // if search results already exist the empty string will reset it 
+    results.textContent = "";
+    // make search ul visible by removing display: none property 
+    results.style.display = "flex";
+    
+    results.appendChild(errorDisplay);
+
 
 }

@@ -250,3 +250,12 @@ details[open] > summary {
     padding-bottom: 10px;
 }
 
+/* error message */
+.errorMessage {
+    font-size: 2rem;
+    font-weight: bold;
+    /* color: hsla(0, 0%, 0%, 0.75); */
+    background-color: #ffffff;
+    padding: 50px;
+    border: #e9ac16 solid 5px; 
+}
