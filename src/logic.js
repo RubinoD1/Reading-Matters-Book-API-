@@ -94,7 +94,7 @@ async function testCall(searchValue, radioSelection) {
       
               //covert our response to JSON -- Also returns a promise that is why we are using await
               const data = await response.json();
-              console.log(data);
+              //console.log(data);
               searchResults(data);
               
               //****pass response data to function****
@@ -108,7 +108,10 @@ async function testCall(searchValue, radioSelection) {
           }    
           break;
 
-
+        
+        //search by publisher
+        
+           
         
         // default response   
         default: 
@@ -160,14 +163,23 @@ function searchResults(data) {
         // set created elements content
     
         //thumbnail 
-        if ("smallThumbnail" in data.items[i].volumeInfo.imageLinks === true){
-            thumbnail.src = `${data.items[i].volumeInfo.imageLinks.smallThumbnail}`;
-            thumbnail.alt = `Book cover thumbnail`; 
-        } else {
-             // **ADD NO BOOK COVER TUMBNAIL ASSET
-            thumbnail.src = ``;
-            //thumbnail.alt = `Book cover not avaliable thumbnail`;
+        if ("imageLinks" in data.items[i].volumeInfo === true){
+            if ("smallThumbnail" in data.items[i].volumeInfo.imageLinks === true){
+                thumbnail.src = `${data.items[i].volumeInfo.imageLinks.smallThumbnail}`;
+                thumbnail.alt = `Book cover thumbnail`; 
+            } else {
+                // set placeholder image if no thumbnail avaliable
+                thumbnail.src = `./assets/images/no image/No-Image-Placeholder.png`;
+                thumbnail.alt = `Book cover not avaliable thumbnail`;
         }
+        }else {
+            // set placeholder image if no thumbnail avaliable
+            thumbnail.src = `./assets/images/no image/No-Image-Placeholder.png`;
+            thumbnail.alt = `Book cover not avaliable thumbnail`;
+        }
+
+
+
 
         //title 
         if ("title" in data.items[i].volumeInfo === true) {
