@@ -73,8 +73,8 @@ async function testCall(searchValue, radioSelection) {
           }
           //error response if api call fails
           catch(error){
-              console.error(error);
-              //displayError(error);
+              //console.error(error);
+              displayError(error);
           }    
           break;
         
@@ -103,15 +103,106 @@ async function testCall(searchValue, radioSelection) {
           }
           //error response if api call fails
           catch(error){
-              console.error(error);
-              //displayError(error);
+              //console.error(error);
+              displayError(error);
           }    
           break;
 
         
         //search by publisher
+        case "publisher":
+        try{
+              //await response (retrieving data)
+              const response = await fetch(`/.netlify/functions/fetch-publisher?search=${search}`);
+      
+              //once the response has been resolved we check its status 
+              if(!response.ok){ //if response is NOT okay throw an error message 
+      
+                  throw new Error("Could not fetch resource");
+      
+              }
+              //if response IS okay 
+      
+              //covert our response to JSON -- Also returns a promise that is why we are using await
+              const data = await response.json();
+              //console.log(data);
+              searchResults(data);
+              
+              //****pass response data to function****
+             
+      
+          }
+          //error response if api call fails
+          catch(error){
+              //console.error(error);
+              displayError(error);
+          }
+
+          break;   
         
-           
+        // search by subject
+        case "subject":  
+        try{
+              //await response (retrieving data)
+              const response = await fetch(`/.netlify/functions/fetch-subject?search=${search}`);
+      
+              //once the response has been resolved we check its status 
+              if(!response.ok){ //if response is NOT okay throw an error message 
+      
+                  throw new Error("Could not fetch resource");
+      
+              }
+              //if response IS okay 
+      
+              //covert our response to JSON -- Also returns a promise that is why we are using await
+              const data = await response.json();
+              //console.log(data);
+              searchResults(data);
+              
+              //****pass response data to function****
+             
+      
+          }
+          //error response if api call fails
+          catch(error){
+              //console.error(error);
+              displayError(error);
+          }
+
+          break;  
+         
+        
+        //search by ISBN  
+        case "ISBN":
+        try{
+              //await response (retrieving data)
+              const response = await fetch(`/.netlify/functions/fetch-ISBN?search=${search}`);
+      
+              //once the response has been resolved we check its status 
+              if(!response.ok){ //if response is NOT okay throw an error message 
+      
+                  throw new Error("Could not fetch resource");
+      
+              }
+              //if response IS okay 
+      
+              //covert our response to JSON -- Also returns a promise that is why we are using await
+              const data = await response.json();
+              //console.log(data);
+              searchResults(data);
+              
+              //****pass response data to function****
+             
+      
+          }
+          //error response if api call fails
+          catch(error){
+              //console.error(error);
+              displayError(error);
+          }
+
+          break;          
+
         
         // default response   
         default: 
