@@ -123,43 +123,7 @@ label:hover {
   padding: 6px;
 }
 
-/* Book info parent */
-.card {
-   
-    display: flex;
-   
-    flex-direction: column;
-   
-    align-items: center;
 
-    /* background: linear-gradient(90deg, #626d87 0%, #8ba5d7a3 100%); */
-    
-    /* TEMP FOR EDITING PLACEHOLDER */
-    background-color: #000000;
-    color: #ffffff;
-   
-    padding: 20px;
-   
-    border-radius: 10px;
-   
-    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.5);
-
-    min-width: 300px;
-
-    font-family: Arial, sans-serif;
-   
-    font-weight: bold;
-
-}
-
-/* book image */
-.bookCover {
-    
-    width: 15%; 
-    
-    height: auto;
-    
-}
 
 /* book gallery */
 .searchResults {
@@ -263,21 +227,59 @@ details[open] > summary {
 
 /* MEDIA BREAK POINTS */
 
+/* web banner */
 @media (max-width: 404px) {
     .banner {
      height: 250px;  
      /* change web banner to phone alt */
      content:url("./assets/images/site banner/phone web banner.png");
-
     }
 }
 
 
-@media (min-width: 405px) and (max-width: 599px) {
+@media (min-width: 405px) and (max-width: 679px) {
     .banner {
      height: 250px;  
      /* change web banner to tablet alt */
      content:url("./assets/images/site banner/tablet web banner.png");
+    }
+}
 
+@media (min-width: 680px) and (max-width: 798px) {
+    .banner {
+     height: 292px;  
+     max-width: 100%;
+    }
+}
+
+@media (min-width: 799px) and (max-width: 940px) {
+    .banner {
+     height: 352px;  
+     max-width: 100%;
+    }
+}
+
+/* form */
+@media (max-width: 489px) {
+    .radioMenu {
+        font-size: 1.4rem;
+        display: flex;
+        flex-direction: column;
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    input[type="radio"]:checked + label {
+        background-color: #89a0d9;
+    }
+    label {
+        padding: 10px;
+        border: solid 1px; 
+    }
+}
+
+@media (min-width: 490px) and (max-width: 679px) {
+    .radioMenu {
+      font-size: 1.1rem;
     }
 }
