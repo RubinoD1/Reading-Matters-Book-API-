@@ -25,61 +25,12 @@ Netlify deployment status: &nbsp;&nbsp;
 
 
 
-## API Notes 
+## About 
 
-Performing a search
+- Max search allowed by Google Books API is 40 results. 
 
-You can perform a volumes search by sending an HTTP GET request to the following URI:
-
-https://www.googleapis.com/books/v1/volumes?q=search+terms
-
-This request has a single required parameter:
-
-    q - Search for volumes that contain this text string. There are special keywords you can specify in the search terms to search in particular fields, such as:
-        
-        intitle: Returns results where the text following this keyword is found in the title.
-        
-        inauthor: Returns results where the text following this keyword is found in the author.
-        
-        inpublisher: Returns results where the text following this keyword is found in the publisher.
-        
-        subject: Returns results where the text following this keyword is listed in the category list of the volume.
-        
-        isbn: Returns results where the text following this keyword is the ISBN number.
-        
-        lccn: Returns results where the text following this keyword is the Library of Congress Control Number.
-        
-        oclc: Returns results where the text following this keyword is the Online Computer Library Center number.
-
-Request
-
-Here is an example of searching for Daniel Keyes' "Flowers for Algernon":
-
-GET https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey
-
-**Note: Performing a search does not require authentication, so you do not have to provide the Authorization HTTP header with the GET request. However, if the call is made with authentication, each Volume will include user-specific information, such as purchased status.**
-
-
-inauthor search sample: https://www.googleapis.com/books/v1/volumes?q=inauthor:"Richard+Moreno"&key=my_key
-
---------------
-
-**Setting max search results**
-
-To set the number of search results using the Google Books API, you utilize the maxResults parameter within your API request. The maximum allowable value for this parameter is 40. To configure the number of results, simply include maxResults=x in your API query, where 'x' is the desired number of results (between 0 and 40). 
-Here's a more detailed breakdown: 
-
-    Parameter Name: maxResults
-
-    Acceptable Values: 0 to 40 (inclusive)
-
-    Default Value: The API has a default value, but it's best to explicitly set the desired number of results for control.
-
-    Example: 
-
-Code
-
-    https://www.googleapis.com/books/v1/volumes?q=java&maxResults=20
+- **ISBN search is finicky -- ensure a valid ISBN number is being used.**
 
 
 
+## Screenshots 

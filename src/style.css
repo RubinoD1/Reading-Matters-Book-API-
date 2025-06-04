@@ -259,3 +259,25 @@ details[open] > summary {
     padding: 50px;
     border: #e9ac16 solid 5px; 
 }
+
+
+/* MEDIA BREAK POINTS */
+
+@media (max-width: 404px) {
+    .banner {
+     height: 250px;  
+     /* change web banner to phone alt */
+     content:url("./assets/images/site banner/phone web banner.png");
+
+    }
+}
+
+
+@media (min-width: 405px) and (max-width: 599px) {
+    .banner {
+     height: 250px;  
+     /* change web banner to tablet alt */
+     content:url("./assets/images/site banner/tablet web banner.png");
+
+    }
+}
