@@ -29,8 +29,9 @@ The API calls retrive info for 40 search results, which is the max allowed searc
 
 ## Screenshots 
 
-<center> Desktop</center>
-&nbsp;
+<p align="center">
+  <b>Desktop</b>
+</p>
 
 ![Home Page Desktop](./src/assets/images/screenshots/home%20page%20desktop.png)
 <!-- &nbsp; adds space between images -->
@@ -42,10 +43,9 @@ The API calls retrive info for 40 search results, which is the max allowed searc
 
 ![Book Info Desktop](./src/assets/images/screenshots/book%20info%20desktop.png)
 
-&nbsp;
-
-<center> Tablet</center>
-&nbsp;
+<p align="center">
+  <b>Tablet</b>
+</p>
 
 ![Home Page Tablet](./src/assets/images/screenshots/home%20page%20tablet.png)
 
@@ -57,10 +57,11 @@ The API calls retrive info for 40 search results, which is the max allowed searc
 
 ![Book Info Tablet](./src/assets/images/screenshots/book%20info%20tablet.png)
 
-&nbsp;
 
-<center> Phone</center>
-&nbsp;
+<p align="center">
+  <b>Phone</b>
+</p>
+
 
 ![Home Page Phone](./src/assets/images/screenshots/home%20page%20phone.png)
 
