@@ -11,7 +11,6 @@ bookSearch.addEventListener("submit", async event => {
 
     //search is used as a query parameter =?${} value that is passed into the api call
     let search = searchInput.value; 
-    console.log(search, " is search");
     
     //verify if a value has been enetered by the user 
     if (search){//if there is a value this will be true 
@@ -27,25 +26,19 @@ bookSearch.addEventListener("submit", async event => {
                 //DO NOTHING 
             }
         }
-
-        console.log(radioSelection, " is radio selection");
     
-        //switch statement to select api call -- pass search value and radio value in function call 
-        //testCall(search, radioSelection);
          apiCalls(search, radioSelection);
 
-    } else { //If no value is entered in search 
+    } else { //If no value is entered in search     
         
-        //console.log("Please enter a search parameter");
         displayError("Please enter a search parameter");
     
     }
-    
-
 }); 
 
 // api calls 
 async function apiCalls(searchValue, radioSelection) {
+    
     let search = searchValue;
     let callCategory = radioSelection;
 
@@ -61,14 +54,13 @@ async function apiCalls(searchValue, radioSelection) {
               }
               //if response IS okay 
       
-              //covert our response to JSON -- Also returns a promise that is why we are using await
+              //covert our response to JSON 
               const data = await response.json();
-              //console.log(data);
+
               searchResults(data);
           }
           //error response if api call fails
           catch(error){
-              //console.error(error);
               displayError(error);
           }    
 }
@@ -208,7 +200,6 @@ function searchResults(data) {
         div.classList.add("thumbnailContent");
         description.classList.add("detailsDescription");
         categories.classList.add("detailsCatergories");
-    
         ratingIcon.classList.add("detailsIcon");
         publisherIcon.classList.add("detailsIcon");
         publicationIcon.classList.add("detailsIcon");
@@ -259,7 +250,7 @@ function displayError(message){
 
     // if search results already exist the empty string will reset it 
     results.textContent = "";
-    // make search ul visible by removing display: none property 
+    // make search ul visible by removing display: none; property 
     results.style.display = "flex";
     
     results.appendChild(errorDisplay);
