@@ -10,7 +10,7 @@
 
 Live page: https://eclectic-sopapillas-cb1982.netlify.app/
 
-GitHub: 
+GitHub: https://github.com/RubinoD1/Reading-Matters-Book-API-
 
 
 Netlify deployment status: &nbsp;&nbsp;
@@ -23,28 +23,16 @@ Netlify deployment status: &nbsp;&nbsp;
 "Books on Wooden Shelves Inside Library" by: [ Stanislav Kondratiev](https://www.pexels.com/@technobulka/)
 
 
-
-
 ## About 
 
-- Uses Google Books API
+Reading Matters makes use of the Google Book API to search for books based on title, author, publisher, subject, or ISBN. Book information that is retrieved includes a book cover image, book title, author, description, categories, rating, publisher, publication date, and page count. 
 
-- Netlify for hosting and Netlify functions to retrieve API data
-
-- Categories: title, author, publisher, subject and ISBN. 
-
-- **ISBN search is finicky -- ensure a valid ISBN number is being used.**
-
-- Max search allowed by Google Books API is 40 results. 
-
-- Book info includes: Book cover, book title, author, description, categories, rating, publisher, publication date, page count. 
-
-
-
-
-
+The API calls retrive info for 40 search results, which is the max allowed search results for the Google Book API. 
 
 ## Screenshots 
+
+<center> Desktop</center>
+&nbsp;
 
 ![Home Page Desktop](./src/assets/images/screenshots/home%20page%20desktop.png)
 <!-- &nbsp; adds space between images -->
@@ -58,6 +46,9 @@ Netlify deployment status: &nbsp;&nbsp;
 
 &nbsp;
 
+<center> Tablet</center>
+&nbsp;
+
 ![Home Page Tablet](./src/assets/images/screenshots/home%20page%20tablet.png)
 
 &nbsp;
@@ -68,6 +59,9 @@ Netlify deployment status: &nbsp;&nbsp;
 
 ![Book Info Tablet](./src/assets/images/screenshots/book%20info%20tablet.png)
 
+&nbsp;
+
+<center> Phone</center>
 &nbsp;
 
 ![Home Page Phone](./src/assets/images/screenshots/home%20page%20phone.png)
