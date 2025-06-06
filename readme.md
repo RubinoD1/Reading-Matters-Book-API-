@@ -14,13 +14,11 @@ GitHub: https://github.com/RubinoD1/Reading-Matters-Book-API-
 
 
 Netlify deployment status: &nbsp;&nbsp;
-<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/af099b76-46ea-4069-84cf-31455d5ae5b1/deploy-status)](https://app.netlify.com/sites/inquisitive-granita-a0d603/deploys) -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/12a3f0af-40af-436d-bb31-fbc7db7cab16/deploy-status)](https://app.netlify.com/projects/eclectic-sopapillas-cb1982/deploys)
 
 
 
-**Site Background Photo**
-
-"Books on Wooden Shelves Inside Library" by: [ Stanislav Kondratiev](https://www.pexels.com/@technobulka/)
+Site Background Photo: "Books on Wooden Shelves Inside Library" by: [ Stanislav Kondratiev](https://www.pexels.com/@technobulka/)
 
 
 ## About 
